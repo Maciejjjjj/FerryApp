@@ -1,11 +1,11 @@
-package personTicket;
+package personTicket.personTicketTypes;
 
 import ticket.Ticket;
 
-public class PersonTicket implements Ticket {
+public class ChildTicket implements Ticket {
 
 
-    public Double getPrice() {
-        return null;
+    public double getPrice() {
+        return 0.00;
     }
 }

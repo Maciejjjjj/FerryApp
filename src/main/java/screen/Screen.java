@@ -1,4 +1,7 @@
 package screen;
 
-public interface Sreen {
+public interface Screen {
+
+    void interact();
+
 }

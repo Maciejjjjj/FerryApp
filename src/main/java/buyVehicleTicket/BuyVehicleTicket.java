@@ -1,4 +1,9 @@
 package buyVehicleTicket;
 
-public class BuyVehicleTicket {
+import screen.Screen;
+
+public class BuyVehicleTicket implements Screen {
+    public void interact() {
+
+    }
 }
