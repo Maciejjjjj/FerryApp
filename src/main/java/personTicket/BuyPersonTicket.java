@@ -14,7 +14,7 @@ public class BuyPersonTicket implements Screen {
 
     public void interact() {
         String response;
-        System.out.println("Type your age please or type 'RETURN' to return.");
+        System.out.println("Please type your age or type 'RETURN' to return.");
 
         response = scanner.next();
         if (response.equalsIgnoreCase("RETURN")) {

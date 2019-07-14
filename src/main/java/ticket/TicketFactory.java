@@ -5,6 +5,10 @@ import personTicket.personTicketTypes.AdultTicket;
 import personTicket.personTicketTypes.ChildTicket;
 import personTicket.personTicketTypes.SeniorTicket;
 import personTicket.personTicketTypes.YoungTicket;
+import vehicleTicket.vehicleTicketTypes.BikeTicket;
+import vehicleTicket.vehicleTicketTypes.BusTicket;
+import vehicleTicket.vehicleTicketTypes.CarTicket;
+import vehicleTicket.vehicleTicketTypes.TruckTicket;
 
 
 public class TicketFactory {
@@ -36,6 +40,24 @@ public class TicketFactory {
             default:
                 SeniorTicket seniorTicket = new SeniorTicket();
                 return seniorTicket;
+        }
+    }
+
+    public Ticket createVehicleTicket(int vehicleType) {
+
+        switch (vehicleType) {
+            case 1:
+                CarTicket carTicket = new CarTicket();
+                return carTicket;
+            case 2:
+                BikeTicket bikeTicket = new BikeTicket();
+                return bikeTicket;
+            case 3:
+                TruckTicket truckTicket = new TruckTicket();
+                return truckTicket;
+            default:
+                BusTicket busTicket = new BusTicket();
+                return busTicket;
         }
     }
 }

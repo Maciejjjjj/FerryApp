@@ -1,6 +1,6 @@
 package screen;
 
-import buyVehicleTicket.BuyVehicleTicket;
+import vehicleTicket.BuyVehicleTicket;
 import personTicket.BuyPersonTicket;
 
 public class BuyTicketFactory {
