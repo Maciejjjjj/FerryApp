@@ -5,6 +5,9 @@ import screen.Screen;
 import screen.TicketTypeScreen;
 import ticket.Ticket;
 import ticket.TicketFactory;
+import ticket.TicketPriceSum;
+import vehicleTicket.vehicleTicketTypes.BusTicket;
+import vehicleTicket.vehicleTicketTypes.TruckTicket;
 
 import java.util.Scanner;
 
@@ -33,8 +36,34 @@ public class BuyVehicleTicket implements Screen {
                 TicketFactory ticketFactory = new TicketFactory();
 
                 Ticket ticket = ticketFactory.createVehicleTicket(Integer.parseInt(response));
+                double calculatedPrice;
 
-                System.out.println("Ticket price: " + ticket.getPrice() + "$");
+                switch (Integer.parseInt(response)) {
+                    case 1:
+                        calculatedPrice = ticket.getPrice();
+                        System.out.println("Ticket price: " + calculatedPrice + "$");
+                        TicketPriceSum.add(ticket);
+                        break;
+                    case 2:
+                        calculatedPrice = ticket.getPrice();
+                        System.out.println("Ticket price: " + calculatedPrice + "$");
+                        TicketPriceSum.add(ticket);
+                        break;
+                    case 3:
+                        TruckTicket truckTicket = new TruckTicket();
+                        calculatedPrice = truckTicket.calculatePrice();
+                        System.out.println("Ticket price: " + calculatedPrice + "$");
+                        TicketPriceSum.add(truckTicket);
+                        break;
+                    default:
+                        BusTicket busTicket = new BusTicket();
+                        calculatedPrice = busTicket.calculatePrice();
+                        System.out.println("Ticket price: " + calculatedPrice + "$");
+                        TicketPriceSum.add(busTicket);
+                        break;
+
+                }
+
                 MainScreen mainScreen = new MainScreen();
                 mainScreen.interact();
             } else {
