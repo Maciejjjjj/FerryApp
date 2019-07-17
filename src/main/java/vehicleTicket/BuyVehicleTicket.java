@@ -43,23 +43,27 @@ public class BuyVehicleTicket implements Screen {
                         calculatedPrice = ticket.getPrice();
                         System.out.println("Ticket price: " + calculatedPrice + "$");
                         TicketPriceSum.add(ticket);
+
                         break;
                     case 2:
                         calculatedPrice = ticket.getPrice();
                         System.out.println("Ticket price: " + calculatedPrice + "$");
                         TicketPriceSum.add(ticket);
+
                         break;
                     case 3:
                         TruckTicket truckTicket = new TruckTicket();
                         calculatedPrice = truckTicket.calculatePrice();
                         System.out.println("Ticket price: " + calculatedPrice + "$");
                         TicketPriceSum.add(truckTicket);
+
                         break;
                     default:
                         BusTicket busTicket = new BusTicket();
                         calculatedPrice = busTicket.calculatePrice();
                         System.out.println("Ticket price: " + calculatedPrice + "$");
                         TicketPriceSum.add(busTicket);
+
                         break;
 
                 }

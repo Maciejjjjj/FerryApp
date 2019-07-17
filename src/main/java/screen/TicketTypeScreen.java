@@ -11,7 +11,7 @@ public class TicketTypeScreen implements Screen {
                 "1- person\n" +
                 "2- vehicle\n" +
                 "3- cargo\n" +
-                "0- to EXIT");
+                "0- to RETURN");
 
         int response = scanner.nextInt();
         BuyTicketFactory buyTicketFactory = new BuyTicketFactory();

@@ -12,6 +12,19 @@ public class TicketPriceSum {
         ticketList.add(ticket);
     }
 
+    public static void printList() {
+
+        int i = 1;
+        for (Ticket ticket : ticketList) {
+
+            System.out.println(i + ". "
+                    + ticket.getType() + ", "
+                    + ticket.getSubType() + ", "
+                    + ticket.getPrice() + "$.");
+            i++;
+        }
+    }
+
     public static double getTotalCost() {
         double priceSum = 0;
         for (Ticket ticketPrice : ticketList) {

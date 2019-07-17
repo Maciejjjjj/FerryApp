@@ -29,6 +29,7 @@ public class BuyPersonTicket implements Screen {
             Ticket ticket = ticketFactory.createPersonTicket(age);
 
             System.out.println("Ticket price: " + ticket.getPrice() + "$");
+
             TicketPriceSum.add(ticket);
 
             MainScreen mainScreen = new MainScreen();

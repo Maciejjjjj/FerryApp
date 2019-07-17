@@ -13,6 +13,16 @@ public class BusTicket implements Ticket {
         return this.calculatedPrice;
     }
 
+    @Override
+    public String getType() {
+        return "Vehicle";
+    }
+
+    @Override
+    public String getSubType() {
+        return "Bus";
+    }
+
     public double calculatePrice() {
         System.out.println("Please enter bus length [meters]:");
         double length = scanner.nextDouble();
