@@ -9,7 +9,6 @@ import java.util.*;
 
 public class MainScreen implements Screen {
 
-
     private final Scanner scanner = new Scanner(System.in);
 
     public void interact() {
@@ -27,12 +26,14 @@ public class MainScreen implements Screen {
             TicketTypeScreen newScreen = new TicketTypeScreen();
             newScreen.interact();
         } else if (response.equalsIgnoreCase("SUM")) {
-            System.out.println("Your total price is: " + TicketPriceSum.getTotalCost() + "$\n");
+            TicketPriceSum ticketPriceSum = new TicketPriceSum();
+            System.out.println("Your total price is: " + ticketPriceSum.getTotalCost() + "$\n");
             interact();
         } else if (response.equalsIgnoreCase("PRINT")) {
+            TicketPriceSum ticketPriceSum = new TicketPriceSum();
             System.out.println("Your tickets (nr/type/subtype/price): ");
 
-            TicketPriceSum.printList();
+            ticketPriceSum.printList();
             interact();
         } else if (response.equalsIgnoreCase("SAVE")) {
 

@@ -7,12 +7,20 @@ import ticket.Ticket;
 import ticket.TicketFactory;
 import ticket.TicketPriceSum;
 
-
 import java.util.Scanner;
 
 public class BuyPersonTicket implements Screen {
 
     private final Scanner scanner = new Scanner(System.in);
+    private TicketPriceSum ticketPriceSum;
+
+
+    public BuyPersonTicket(TicketPriceSum ticketPriceSum) {
+        this.ticketPriceSum = ticketPriceSum;
+    }
+
+    public BuyPersonTicket() {
+    }
 
     public void interact() {
         String response;
@@ -26,11 +34,12 @@ public class BuyPersonTicket implements Screen {
 
             TicketFactory ticketFactory = new TicketFactory();
             int age = Integer.parseInt(response);
+
             Ticket ticket = ticketFactory.createPersonTicket(age);
 
             System.out.println("Ticket price: " + ticket.getPrice() + "$");
 
-            TicketPriceSum.add(ticket);
+           ticketPriceSum.add(ticket);
 
             MainScreen mainScreen = new MainScreen();
             mainScreen.interact();

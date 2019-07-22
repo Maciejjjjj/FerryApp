@@ -9,12 +9,21 @@ import ticket.TicketPriceSum;
 import vehicleTicket.vehicleTicketTypes.BusTicket;
 import vehicleTicket.vehicleTicketTypes.TruckTicket;
 
+import java.util.List;
 import java.util.Scanner;
 
 
 public class BuyVehicleTicket implements Screen {
 
     private final Scanner scanner = new Scanner(System.in);
+    private List<Ticket> ticketList;
+
+    public BuyVehicleTicket(List<Ticket> ticketList) {
+        this.ticketList = ticketList;
+    }
+
+    public BuyVehicleTicket() {
+    }
 
     public void interact() {
         String response;
@@ -42,27 +51,27 @@ public class BuyVehicleTicket implements Screen {
                     case 1:
                         calculatedPrice = ticket.getPrice();
                         System.out.println("Ticket price: " + calculatedPrice + "$");
-                        TicketPriceSum.add(ticket);
+                        ticketList.add(ticket);
 
                         break;
                     case 2:
                         calculatedPrice = ticket.getPrice();
                         System.out.println("Ticket price: " + calculatedPrice + "$");
-                        TicketPriceSum.add(ticket);
+                        ticketList.add(ticket);
 
                         break;
                     case 3:
                         TruckTicket truckTicket = new TruckTicket();
                         calculatedPrice = truckTicket.calculatePrice();
                         System.out.println("Ticket price: " + calculatedPrice + "$");
-                        TicketPriceSum.add(truckTicket);
+                        ticketList.add(truckTicket);
 
                         break;
                     default:
                         BusTicket busTicket = new BusTicket();
                         calculatedPrice = busTicket.calculatePrice();
                         System.out.println("Ticket price: " + calculatedPrice + "$");
-                        TicketPriceSum.add(busTicket);
+                        ticketList.add(busTicket);
 
                         break;
 

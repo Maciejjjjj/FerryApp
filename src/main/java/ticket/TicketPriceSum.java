@@ -5,14 +5,19 @@ import java.util.List;
 
 public class TicketPriceSum {
 
-    private static List<Ticket> ticketList = new ArrayList<>();
+    // Poczytać o kontruktorach!!!
+
+    // Przekazać obiekt ticketList do miejsca gdzie chce go wykorzystać, chodzi konstruktor (za jego pomoca muszę to przekazać)
+
+    public List<Ticket> ticketList = new ArrayList<>();
 
 
-    public static void add(Ticket ticket) {
+
+    public void add(Ticket ticket) {
         ticketList.add(ticket);
     }
 
-    public static void printList() {
+    public void printList() {
 
         int i = 1;
         for (Ticket ticket : ticketList) {
@@ -25,7 +30,7 @@ public class TicketPriceSum {
         }
     }
 
-    public static double getTotalCost() {
+    public double getTotalCost() {
         double priceSum = 0;
         for (Ticket ticketPrice : ticketList) {
             priceSum += ticketPrice.getPrice();
