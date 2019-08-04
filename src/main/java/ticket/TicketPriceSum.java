@@ -1,17 +1,26 @@
 package ticket;
 
+import screen.MainScreen;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class TicketPriceSum {
 
-    // Poczytać o kontruktorach!!!
+    private static TicketPriceSum instance;
 
-    // Przekazać obiekt ticketList do miejsca gdzie chce go wykorzystać, chodzi konstruktor (za jego pomoca muszę to przekazać)
+    public static TicketPriceSum INSTANCE() {
+        if (instance == null) {
+            instance = new TicketPriceSum();
+        }
+        return instance;
+    }
 
-    public List<Ticket> ticketList = new ArrayList<>();
+    private List<Ticket> ticketList;
 
-
+    public TicketPriceSum() {
+        ticketList = new ArrayList<>();
+    }
 
     public void add(Ticket ticket) {
         ticketList.add(ticket);

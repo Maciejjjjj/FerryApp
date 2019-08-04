@@ -9,18 +9,14 @@ import ticket.TicketPriceSum;
 
 import java.util.Scanner;
 
-public class BuyPersonTicket implements Screen {
+public class BuyPersonTicket extends TicketPriceSum implements Screen {
 
     private final Scanner scanner = new Scanner(System.in);
-    private TicketPriceSum ticketPriceSum;
 
+    private MainScreen mainScreen = MainScreen.INSTANCE();
+    private TicketTypeScreen ticketTypeScreen = TicketTypeScreen.INSTANCE();
+    private TicketPriceSum ticketPriceSum = TicketPriceSum.INSTANCE();
 
-    public BuyPersonTicket(TicketPriceSum ticketPriceSum) {
-        this.ticketPriceSum = ticketPriceSum;
-    }
-
-    public BuyPersonTicket() {
-    }
 
     public void interact() {
         String response;
@@ -28,9 +24,10 @@ public class BuyPersonTicket implements Screen {
 
         response = scanner.next();
         if (response.equalsIgnoreCase("RETURN")) {
-            TicketTypeScreen ticketTypeScreen = new TicketTypeScreen();
+
             ticketTypeScreen.interact();
         } else if (response.matches("\\d+")) {
+
 
             TicketFactory ticketFactory = new TicketFactory();
             int age = Integer.parseInt(response);
@@ -39,9 +36,9 @@ public class BuyPersonTicket implements Screen {
 
             System.out.println("Ticket price: " + ticket.getPrice() + "$");
 
-           ticketPriceSum.add(ticket);
+            ticketPriceSum.add(ticket);
 
-            MainScreen mainScreen = new MainScreen();
+
             mainScreen.interact();
         } else {
             System.out.println("Wrong age, try again.");

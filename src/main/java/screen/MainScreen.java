@@ -4,12 +4,26 @@ import filesOperations.RestoringTickets;
 import filesOperations.SavingTickets;
 import ticket.TicketPriceSum;
 
+
 import java.util.*;
 
 
 public class MainScreen implements Screen {
 
+    private static MainScreen instance;
+    private TicketPriceSum ticketPriceSum = TicketPriceSum.INSTANCE();
+
+
+    public static MainScreen INSTANCE() {
+        if (instance == null) {
+            instance = new MainScreen();
+        }
+        return instance;
+    }
+
     private final Scanner scanner = new Scanner(System.in);
+    private TicketTypeScreen newScreen = new TicketTypeScreen();
+
 
     public void interact() {
 
@@ -23,14 +37,13 @@ public class MainScreen implements Screen {
 
         if (response.equalsIgnoreCase("START")) {
 
-            TicketTypeScreen newScreen = new TicketTypeScreen();
             newScreen.interact();
         } else if (response.equalsIgnoreCase("SUM")) {
-            TicketPriceSum ticketPriceSum = new TicketPriceSum();
+
             System.out.println("Your total price is: " + ticketPriceSum.getTotalCost() + "$\n");
             interact();
         } else if (response.equalsIgnoreCase("PRINT")) {
-            TicketPriceSum ticketPriceSum = new TicketPriceSum();
+
             System.out.println("Your tickets (nr/type/subtype/price): ");
 
             ticketPriceSum.printList();
@@ -49,7 +62,6 @@ public class MainScreen implements Screen {
             RestoringTickets restoringTickets = new RestoringTickets();
 
             restoringTickets.restoreTickets();
-
 
             interact();
         } else if (response.equalsIgnoreCase("EXIT")) {

@@ -5,8 +5,18 @@ import java.util.Scanner;
 public class TicketTypeScreen implements Screen {
 
     private final Scanner scanner = new Scanner(System.in);
+    private BuyTicketFactory buyTicketFactory = new BuyTicketFactory();
+    private static TicketTypeScreen instance;
 
-    public void interact() {
+    public static TicketTypeScreen INSTANCE() {
+        if (instance == null) {
+            instance = new TicketTypeScreen();
+        }
+        return instance;
+    }
+
+
+        public void interact() {
         System.out.println("Choose ticket type, press:\n" +
                 "1- person\n" +
                 "2- vehicle\n" +
@@ -14,7 +24,7 @@ public class TicketTypeScreen implements Screen {
                 "0- to RETURN");
 
         int response = scanner.nextInt();
-        BuyTicketFactory buyTicketFactory = new BuyTicketFactory();
+
 
         if (response == 1) {
             buyTicketFactory.buyPersonTicket();

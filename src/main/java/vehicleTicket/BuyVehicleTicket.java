@@ -9,21 +9,16 @@ import ticket.TicketPriceSum;
 import vehicleTicket.vehicleTicketTypes.BusTicket;
 import vehicleTicket.vehicleTicketTypes.TruckTicket;
 
-import java.util.List;
 import java.util.Scanner;
 
 
 public class BuyVehicleTicket implements Screen {
 
     private final Scanner scanner = new Scanner(System.in);
-    private List<Ticket> ticketList;
+    private MainScreen mainScreen = MainScreen.INSTANCE();
+    private TicketTypeScreen ticketTypeScreen = TicketTypeScreen.INSTANCE();
+    private TicketPriceSum ticketPriceSum = TicketPriceSum.INSTANCE();
 
-    public BuyVehicleTicket(List<Ticket> ticketList) {
-        this.ticketList = ticketList;
-    }
-
-    public BuyVehicleTicket() {
-    }
 
     public void interact() {
         String response;
@@ -37,7 +32,7 @@ public class BuyVehicleTicket implements Screen {
         response = scanner.next();
 
         if (response.equalsIgnoreCase("RETURN")) {
-            TicketTypeScreen ticketTypeScreen = new TicketTypeScreen();
+
             ticketTypeScreen.interact();
         } else if (response.matches("\\d+")) {
             if (Integer.parseInt(response) >= 1 && Integer.parseInt(response) <= 4) {
@@ -51,33 +46,32 @@ public class BuyVehicleTicket implements Screen {
                     case 1:
                         calculatedPrice = ticket.getPrice();
                         System.out.println("Ticket price: " + calculatedPrice + "$");
-                        ticketList.add(ticket);
+                        ticketPriceSum.add(ticket);
 
                         break;
                     case 2:
                         calculatedPrice = ticket.getPrice();
                         System.out.println("Ticket price: " + calculatedPrice + "$");
-                        ticketList.add(ticket);
+                        ticketPriceSum.add(ticket);
 
                         break;
                     case 3:
                         TruckTicket truckTicket = new TruckTicket();
                         calculatedPrice = truckTicket.calculatePrice();
                         System.out.println("Ticket price: " + calculatedPrice + "$");
-                        ticketList.add(truckTicket);
+                        ticketPriceSum.add(truckTicket);
 
                         break;
                     default:
                         BusTicket busTicket = new BusTicket();
                         calculatedPrice = busTicket.calculatePrice();
                         System.out.println("Ticket price: " + calculatedPrice + "$");
-                        ticketList.add(busTicket);
+                        ticketPriceSum.add(busTicket);
 
                         break;
 
                 }
 
-                MainScreen mainScreen = new MainScreen();
                 mainScreen.interact();
             } else {
                 System.out.println("Wrong car type, try again.");
